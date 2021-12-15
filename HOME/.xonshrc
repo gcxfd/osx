@@ -1,0 +1,12 @@
+from os.path import dirname,abspath,join,basename
+import itertools
+
+def colored_tracer(cmds, **_):
+  cmd = " ".join(itertools.chain.from_iterable(cmds))
+  print(cmd)
+
+$XONSH_TRACE_SUBPROC_FUNC = colored_tracer
+$XONSH_NO_AMALGAMATE = True
+$RAISE_SUBPROC_ERROR = True
+$XONSH_SHOW_TRACEBACK = True
+$XONSH_TRACE_SUBPROC = True
