@@ -221,6 +221,8 @@ set wildmenu            "命令行模式按tab补全命令
 set fdm=indent
 "python文件模板
 autocmd BufNewFile *.py 0r /etc/vim/bundle/template/vim.py
+autocmd BufNewFile *.xsh 0r /etc/vim/bundle/template/vim.xsh
+autocmd BufNewFile *.sh 0r /etc/vim/bundle/template/vim.sh
 autocmd BufNewFile *.vue 0r /etc/vim/bundle/template/vim.vue
 autocmd BufNewFile *.ls 0r /etc/vim/bundle/template/vim.ls
 autocmd BufNewFile *.coffee 0r /etc/vim/bundle/template/vim.coffee
