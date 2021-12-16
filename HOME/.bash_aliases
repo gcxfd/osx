@@ -21,4 +21,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export PATH="$HOME/.pub-cache/bin:$HOME/.deno/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
