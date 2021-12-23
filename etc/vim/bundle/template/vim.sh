@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-_DIR=$(dirname $(realpath "$0"))
-cd $_DIR
+PWD=$(dirname $(realpath "$0"))
+cd $PWD
 set -ex
+
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
+

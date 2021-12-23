@@ -1,13 +1,21 @@
-source ~/.zplugin/bin/zplugin.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+run(){
+[[ ! -f $1 ]] || source $1
+}
+
+run ~/.p10k.zsh
+#run $ZINIT_HOME/../plugins/tj---git-extras/etc/git-extras-completion.zsh
 
 if [[ -r "~/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "~/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -25,24 +33,15 @@ zinit ice wait lucid
 zinit light changyuheng/zsh-interactive-cd
 
 zinit ice wait lucid
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait lucid
-zinit light zdharma/history-search-multi-word
-
-zinit ice wait lucid as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zinit light tj/git-extras
+zinit light zdharma-continuum/history-search-multi-word
 
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
-zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-    atpull'%atclone' src"zhook.zsh"
-zinit light direnv/direnv
-
-zinit ice from"gh-r" as"program" mv"direnv* -> direnv"
-zinit light direnv/direnv
-
+eval "$(direnv hook $SHELL)"
